@@ -48,7 +48,7 @@ src/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/MohamedHegazy2020/weather-app.git
+git clone https://github.com/mohamed-hegazy219427/weather-app.git
 cd weather-app
 ```
 
@@ -92,7 +92,7 @@ Output goes to `dist/`.
 
 ## Contributing
 
-Found a bug or want a feature? Open an [issue](https://github.com/MohamedHegazy2020/weather-app/issues) or submit a pull request.
+Found a bug or want a feature? Open an [issue](https://github.com/mohamed-hegazy219427/weather-app/issues) or submit a pull request.
 
 ## License
 
