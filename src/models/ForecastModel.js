@@ -1,4 +1,4 @@
-import { WEEKDAYS } from '../config.js';
+import { WEEKDAYS } from "../config.js";
 
 export class ForecastModel {
   static toDisplayDays(data) {
@@ -9,7 +9,7 @@ export class ForecastModel {
       location: data.location.name,
       tempC: day.day.avgtemp_c,
       condition: day.day.condition.text,
-      icon: `https://cdn.weatherapi.com${day.day.condition.icon.replace(/^.*\/weather/, '/weather')}`,
+      icon: `https://cdn.weatherapi.com${day.day.condition.icon.replace(/^.*\/weather/, "/weather")}`,
       humidity: day.day.avghumidity,
       windKph: day.day.maxwind_kph,
       windDir: day.hour[0].wind_dir,

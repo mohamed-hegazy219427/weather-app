@@ -27,6 +27,6 @@ export class WeatherModel {
   }
 
   #notify() {
-    this.#listeners.forEach(fn => fn(this.getState()));
+    this.#listeners.forEach((fn) => fn(this.getState()));
   }
 }

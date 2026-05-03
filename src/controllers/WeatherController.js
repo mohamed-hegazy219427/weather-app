@@ -1,4 +1,4 @@
-import { ForecastModel } from '../models/ForecastModel.js';
+import { ForecastModel } from "../models/ForecastModel.js";
 
 export class WeatherController {
   #model;
@@ -14,14 +14,16 @@ export class WeatherController {
   }
 
   async init() {
-    this.#searchView.onSearch(({ city, days }) => this.#handleSearch(city, days));
-    this.#model.onChange(state => this.#handleModelUpdate(state));
+    this.#searchView.onSearch(({ city, days }) =>
+      this.#handleSearch(city, days),
+    );
+    this.#model.onChange((state) => this.#handleModelUpdate(state));
     await this.#load();
   }
 
   async #handleSearch(city, days) {
     if (!city) {
-      this.#alertView.show('Please enter a location.');
+      this.#alertView.show("Please enter a location.");
       return;
     }
     await this.#load(city, days);
@@ -33,8 +35,10 @@ export class WeatherController {
     try {
       await this.#model.load(city, days);
     } catch (err) {
-      if (err.name === 'AbortError') return;
-      this.#forecastView.showError('Could not load weather data. Please try again.');
+      if (err.name === "AbortError") return;
+      this.#forecastView.showError(
+        "Could not load weather data. Please try again.",
+      );
       this.#alertView.show(err.message);
     }
   }
