@@ -1,0 +1,32 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "A 3-day weather forecast app built with vanilla JS, MVC architecture, and the WeatherAPI.com REST API.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "weather",
+    "forecast",
+    "weatherapi",
+    "vite",
+    "vanilla-js",
+    "mvc"
+  ],
+  "author": "Mohamed Hegazy <mohamedhegazy219427@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamed-hegazy219427/weather-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohamed-hegazy219427/weather-app/issues"
+  },
+  "homepage": "https://github.com/mohamed-hegazy219427/weather-app#readme",
+  "devDependencies": {
+    "vite": "^8.0.10"
+  }
+}

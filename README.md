@@ -1,30 +1,99 @@
-# weather-app
+# Weather App
 
-This is a weather website built with HTML, CSS, and JavaScript that uses the `fetch` API to integrate data from the Weather API website.
+A responsive 3-day weather forecast app built with vanilla JavaScript using a clean **MVC architecture**, powered by [WeatherAPI.com](https://www.weatherapi.com/) and bundled with [Vite](https://vitejs.dev/).
 
 ## Features
 
-- Search bar that allows users to enter a location and get the current weather conditions
-- 3-day forecast
+- Search any city worldwide for a live weather forecast
+- Choose 1, 2, or 3 days of forecast
+- Displays temperature, condition, humidity, wind speed, and wind direction
+- Fully responsive layout (Bootstrap 5)
+- Cancels in-flight requests automatically on new searches (AbortController)
+- User-friendly error and loading states
 
-## API Integration
+## Tech Stack
 
-We used the `fetch` API to retrieve data from the Weather API. The `fetch` API is a modern way to make network requests in JavaScript. It allows us to make asynchronous requests to the server and handle the response in a more elegant way than traditional AJAX requests.
+| Layer | Technology |
+|---|---|
+| Bundler | Vite |
+| Styles | Bootstrap 5, Font Awesome 6, custom CSS |
+| Language | Vanilla JS (ES2022) — private class fields, optional chaining, nullish coalescing |
+| API | [WeatherAPI.com REST API](https://www.weatherapi.com/docs/) |
+| Architecture | MVC (Model – View – Controller) |
 
-To use the Weather API, you need to sign up for an API key on the https://www.weatherapi.com/. Once you have an API key, you can use it to make requests to the Weather API and retrieve weather data for any location in the world.
+## Project Structure
 
+```
+src/
+├── config.js                   ← API key (env), base URL, defaults
+├── main.js                     ← Entry point — composes & boots the app
+├── services/
+│   └── WeatherApiService.js    ← Raw fetch wrapper, AbortController
+├── models/
+│   ├── WeatherModel.js         ← App state + observer pattern
+│   └── ForecastModel.js        ← Pure data transforms (API → view model)
+├── views/
+│   ├── ForecastView.js         ← Renders forecast table
+│   ├── SearchView.js           ← Search input + dropdown events
+│   └── AlertView.js            ← Error / info messages
+├── controllers/
+│   └── WeatherController.js    ← Wires model ↔ views, handles user actions
+└── utils/
+    ├── dateFormatter.js        ← Weekday / date helpers
+    └── domHelpers.js           ← Type-safe querySelector wrappers
+```
 
+## Getting Started
 
-## Usage
+### 1. Clone the repo
 
-To use this website, follow these steps:
+```bash
+git clone https://github.com/MohamedHegazy2020/weather-app.git
+cd weather-app
+```
 
-1. Enter a location in the search bar.
-2. Click the search button.
-3. The current weather conditions and 3-day forecast will be displayed.
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Copy the example env file and add your API key:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
+
+```
+VITE_API_KEY=your_weatherapi_key_here
+```
+
+Get a free key at [weatherapi.com](https://www.weatherapi.com/).
+
+### 4. Run the dev server
+
+```bash
+npm run dev
+```
+
+Opens at `http://localhost:3000`.
+
+### 5. Build for production
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`.
 
 ## Contributing
 
-If you find a bug or have a feature request, please open an issue on GitHub. If you want to contribute code, please fork the repository and create a pull request.
+Found a bug or want a feature? Open an [issue](https://github.com/MohamedHegazy2020/weather-app/issues) or submit a pull request.
 
+## License
 
+MIT
